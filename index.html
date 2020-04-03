@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		@font-face {
+		    font-family: Fett;
+		    src: url(font.ttf); 
+		}
+		.enemy{
+			margin-top: 100px;
+			text-align:center;
+			height: 250px;
+		}
+		.d-flex{
+			display: flex;
+			margin-top: 200px;
+		}
+		.d-flex1{
+			display: flex;
+			margin-top: -280px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		.player_img{
+			width:200px;
+			height: 300px;
+			margin-left: 850px;
+			background-size: 100% 100%;
+			position: relative;
+			transition: 1s;
+			color: white; font-family: Fett;
+			text-shadow: black 1px 1px 0, black -1px -1px 0, black -1px 1px 0, black 1px -1px 0;
+
+		}
+		.player_img1{
+			width:200px;
+			height: 300px;
+			margin-left: 460px;
+			background-size: 100% 100%;
+			position: relative;
+			transition: 1s;
+			color: white; font-family: Fett;
+			text-shadow: black 1px 1px 0, black -1px -1px 0, black -1px 1px 0, black 1px -1px 0;
+
+		}
+		.enemy_img{
+			width:200px;
+			height: 300px;
+			margin-left: 740px;
+			background-size: 100% 100%;
+			position: relative;
+			transition: 1s;
+			color: white; font-family: Fett;
+			text-shadow: black 1px 1px 0, black -1px -1px 0, black -1px 1px 0, black 1px -1px 0;
+
+		}
+		.player{
+			text-align: center;
+			height: 250px;
+			margin-top: 550px;
+
+		}
+		.player_property{
+			position: absolute;
+			top:80%;
+
+		}
+		.enemy_name{
+			color: white; font-family: Fett;
+			text-shadow: black 2px 2px 0, black -2px -2px 0, black -2px 2px 0, black 2px -2px 0;
+		}
+		.player_name{
+			color: white; font-family: Fett;
+			text-shadow: black 2px 2px 0, black -2px -2px 0, black -2px 2px 0, black 2px -2px 0;
+		}
+		.text{
+			color: white; font-family: Fett;
+			text-shadow: black 2px 2px 0, black -2px -2px 0, black -2px 2px 0, black 2px -2px 0;
+			text-align: center;
+			position: absolute;
+			top: 46%;
+			left: 45%;
+		}
+	</style>
+</head>
+<body style="background-image: url(images/bg.jpg); background-size: 100% ">
+
+	<div class="enemy">
+		<h1 class="enemy_name"></h1>
+		<div class="d-flex">
+			<div class="enemy_img">
+				<h2 class="enemy_damage player_property" style="left: 14%;">0</h2>
+				<h2 class="enemy_hp player_property" style="left: 84%;">0</h2>
+			</div>
+			<div class="enemy_img enemy_img1">
+				<h2 class="enemy_damage enemy_damage1 player_property" style="left: 14%;">0</h2>
+				<h2 class="enemy_hp enemy_hp1 player_property" style="left: 84%;">0</h2>
+			</div>		
+		</div>
+	</div>
+	<div><h1 class="text"></h1></div>
+
+	<div class="player">
+		<h1 class="player_name"></h1>
+		<div class="d-flex1">
+			<div class="player_img">
+				<h2 class="player_damage player_property" style="left: 12%;">0</h2>
+				<h2 class="player_hp player_property" style="left: 84%;">0</h2>
+			</div>
+			<div class="player_img player_img1">
+				<h2 class="player_damage player_damage1 player_property" style="left: 12%;">0</h2>
+				<h2 class="player_hp player_hp1 player_property" style="left: 84%;">0</h2>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		let enemy = document.querySelector('.enemy');
+		let player = document.querySelector('.player');
+		let enemyName = document.querySelector('.enemy_name');
+		let playerName = document.querySelector('.player_name');
+		let enemyImg = document.querySelector('.enemy_img');
+		let playerImg = document.querySelector('.player_img');
+		let enemyHp = document.querySelector('.enemy_hp');
+		let playerHp = document.querySelector('.player_hp');
+		let enemyDamage = document.querySelector('.enemy_damage');
+		let playerDamage = document.querySelector('.player_damage');
+		let enemyImg1 = document.querySelector('.enemy_img1');
+		let playerImg1 = document.querySelector('.player_img1');
+		let enemyHp1 = document.querySelector('.enemy_hp1');
+		let playerHp1 = document.querySelector('.player_hp1');
+		let enemyDamage1 = document.querySelector('.enemy_damage1');
+		let playerDamage1 = document.querySelector('.player_damage1');
+		let winText = document.querySelector('.text');
+
+		let getRandom = function(){
+	        let rand = Math.random() * 9;
+	        let round = Math.round(rand);
+	        return round;
+      	}
+
+
+		let enemyy = {
+			name : 'Enemy1',
+			url : 'url(full-images/' + getRandom() + '.png)',
+			hp : getRandom(),
+			dmg : getRandom(),
+		}
+		let enemyyy = {
+			name : 'Enemy2',
+			url : 'url(full-images/' + getRandom() + '.png)',
+			hp : getRandom(),
+			dmg : getRandom(),
+		}
+
+
+
+		let playerr = {
+			name : 'Player1',
+			url : 'url(full-images/' + getRandom() + '.png)',
+			hp : getRandom(),
+			dmg : getRandom(),	
+		}
+		let playerrr = {
+			name : 'Player2',
+			url : 'url(full-images/' + getRandom() + '.png)',
+			hp : getRandom(),
+			dmg : getRandom(),	
+		}
+
+
+
+		let attack = function(){
+			alert('The attack begins!');
+
+	        enemyy.hp = enemyy.hp - playerr.dmg;
+	        enemyHp.innerHTML = enemyy.hp;
+	       
+
+	        playerr.hp = playerr.hp - enemyy.dmg;
+	        playerHp.innerHTML = playerr.hp;
+
+	        enemyyy.hp = enemyyy.hp - playerrr.dmg;
+	        enemyHp1.innerHTML = enemyyy.hp;
+	       
+
+	        playerrr.hp = playerrr.hp - enemyyy.dmg;
+	        playerHp1.innerHTML = playerrr.hp;
+
+	        let playerHP = playerr.hp + playerrr.hp;
+	        let enemyHP = enemyy.hp + enemyyy.hp;
+
+	        if (playerHP < enemyHP) {
+        		player.style.opacity = '0';
+        		player.style.transition = '1s';
+        		winText.innerHTML = 'Enemy won the match!';
+        	}
+         	if (enemyHP < playerHP) {
+        		enemy.style.opacity = '0';
+        		enemy.style.transition = '1s';
+        		winText.innerHTML = 'Player won the match!';
+        	}
+	        
+      	}
+		setTimeout(attack,5000);
+
+		enemyImg.style.backgroundImage = enemyy.url;
+		enemyImg1.style.backgroundImage = enemyyy.url;
+		playerImg.style.backgroundImage = playerr.url;
+		playerImg1.style.backgroundImage = playerrr.url;
+		enemyName.innerHTML = 'Enemy';
+		playerName.innerHTML = 'Player';
+		enemyHp.innerHTML = enemyy.hp;
+		enemyHp1.innerHTML = enemyyy.hp;
+		playerHp.innerHTML = playerr.hp;
+		playerHp1.innerHTML = playerrr.hp;
+		enemyDamage.innerHTML = enemyy.dmg;
+		enemyDamage1.innerHTML = enemyyy.dmg;
+		playerDamage.innerHTML = playerr.dmg;
+		playerDamage1.innerHTML = playerrr.dmg;
+	</script>
+</body>
+</html>
